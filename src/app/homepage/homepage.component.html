@@ -1,0 +1,75 @@
+<div class="pb-5">
+  <div class="py-3">
+    <h2>World Wide</h2>
+    <div class="d-flex mt-2">
+      <div class="col-3">
+        <app-infomation-card [card]="cardWorldConfirmed"></app-infomation-card>
+      </div>
+      <div class="col-3">
+        <app-infomation-card [card]="cardWorldRecovered"></app-infomation-card>
+      </div>
+      <div class="col-3">
+        <app-infomation-card [card]="cardWorldDeaths"></app-infomation-card>
+      </div>
+      <div class="col-3">
+        <app-infomation-card
+          [card]="cardWorldFatalityRate"
+        ></app-infomation-card>
+      </div>
+    </div>
+  </div>
+  <div class="py-3">
+    <div class="d-flex align-items-end">
+      <h2 class="mr-2">Regional</h2>
+      <div class="ml-1">
+        <label for="selectRegion" class="pl-2 pb-0 mb-0 text-black-50"
+          >Country & Region</label
+        >
+        <select
+          id="selectRegion"
+          class="
+            custom-select
+            border-top-0 border-left-0 border-right-0 border-dark
+            rounded-0
+            bg-light
+            pt-0
+            pl-2
+          "
+          (change)="changeCurrentCountry($event)"
+        >
+          <option
+            *ngFor="let item of countryCodeArr"
+            [value]="item.countrycode?.iso2"
+            [selected]="item.countrycode?.iso2 === currentCountryCode"
+          >
+            {{ item.countryregion }}
+          </option>
+        </select>
+      </div>
+    </div>
+    <div class="d-flex mt-2">
+      <div class="col-3">
+        <app-infomation-card [card]="cardRegionConfirmed"></app-infomation-card>
+      </div>
+      <div class="col-3">
+        <app-infomation-card [card]="cardRegionRecovered"></app-infomation-card>
+      </div>
+      <div class="col-3">
+        <app-infomation-card [card]="cardRegionDeaths"></app-infomation-card>
+      </div>
+      <div class="col-3">
+        <app-infomation-card
+          [card]="cardRegionFatalityRate"
+        ></app-infomation-card>
+      </div>
+    </div>
+  </div>
+  <div class="d-flex mt-5">
+    <div class="col-6">
+      <app-leaflet-map></app-leaflet-map>
+    </div>
+    <div class="col-6">
+      <app-crd-chart></app-crd-chart>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+<div
+  [class]="[
+    'card',
+    card?.backGround || 'bg-light',
+    card?.textColor || 'text-dark'
+  ]"
+>
+  <div class="d-flex px-2 pt-3">
+    <fa-icon
+      class="col-1"
+      [icon]="[card?.icon?.prefix, card?.icon?.name]"
+    ></fa-icon>
+    <p class="col-11 mb-0 h6">{{ card?.title }}</p>
+  </div>
+  <p class="card-body py-1 h5">{{ card?.body | numberWithComma }}</p>
+</div>
